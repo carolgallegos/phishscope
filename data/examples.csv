@@ -11,3 +11,5 @@ text,kind,label
 "Can you review the draft I left on the shared drive?","chat","legitimate"
 "Congratulations, you won a gift card. Click http://claim-reward.buzz now.","email","phishing"
 "Office hours are Monday 10-12 in room 204.","email","legitimate"
+"Your professor posted feedback. Sign in at https://univ-portal.com/login","email","phishing"
+"The urgent care clinic on campus opens at 8.","email","legitimate"

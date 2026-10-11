@@ -6,7 +6,7 @@ Security inboxes get more suspicious mail than a person can read. PhishScope is 
 
 ## Status
 
-Labeled examples live in `data/examples.csv`. `rules.check` is a first pass: urgent wording and suspicious links, with the reasons attached.
+Labeled examples live in `data/examples.csv`. `rules.check` is a first pass: urgent wording and suspicious links, with the reasons attached. `python -m phishscope.score` (with `src` on `PYTHONPATH`) prints how many of those examples it gets right.
 
 ## Layout
 
