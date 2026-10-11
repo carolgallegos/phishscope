@@ -6,7 +6,7 @@ Security inboxes get more suspicious mail than a person can read. PhishScope is 
 
 ## Status
 
-Project layout and package skeleton. Labeled examples and a simple baseline come next.
+Labeled examples live in `data/examples.csv`. A rule-based check comes next.
 
 ## Layout
 

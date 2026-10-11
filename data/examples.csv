@@ -1,0 +1,13 @@
+text,kind,label
+"Your mailbox will be closed in 2 hours. Verify your password at http://secure-mailbox-login.xyz/reset","email","phishing"
+"Invoice 4412 is attached. Payment is due on the 30th.","email","legitimate"
+"http://paypa1-secure.com/login","url","phishing"
+"https://www.university.edu/library/hours","url","legitimate"
+"Hi, the lab meeting moved to Thursday at 4. See you there.","chat","legitimate"
+"URGENT: your account is suspended. Send the one-time code to this chat or it will be deleted.","chat","phishing"
+"Package held at customs. Pay the fee here: http://parcel-release.top/pay","email","phishing"
+"Thanks for submitting the form. We will reply within three business days.","email","legitimate"
+"http://microsoft-support-help.ru/account","url","phishing"
+"Can you review the draft I left on the shared drive?","chat","legitimate"
+"Congratulations, you won a gift card. Click http://claim-reward.buzz now.","email","phishing"
+"Office hours are Monday 10-12 in room 204.","email","legitimate"
