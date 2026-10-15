@@ -6,11 +6,16 @@ Security inboxes get more suspicious mail than a person can read. PhishScope is 
 
 ## Status
 
-Labeled examples live in `data/examples.csv`. `rules.check` is a first pass: urgent wording and suspicious links, with the reasons attached. `python -m phishscope.score` (with `src` on `PYTHONPATH`) prints how many of those examples it gets right.
+Labeled examples live in `data/examples.csv`. `rules.check` is a first pass: urgent wording and suspicious links, with the reasons attached. `model.fit` trains a logistic regression on features from that same sheet (account wording, a bare "urgent", odd login hosts). The number it prints is how well that fit separates these rows, not mail it has never seen.
+
+```bash
+set PYTHONPATH=src
+python -m phishscope.score
+```
 
 ## Layout
 
-- `src/phishscope` — message model and, later, the checker
+- `src/phishscope` — message model, rule check, and the sheet classifier
 - `data` — labeled examples
 
 ## Setup

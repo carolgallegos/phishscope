@@ -1,27 +1,39 @@
 from .dataset import Example, load_examples
+from .model import fit, predict
 from .rules import check
 
 
-def score(examples: list[Example] | None = None) -> dict:
-    rows = examples if examples is not None else load_examples()
+def _tally(rows: list[Example], label_of) -> dict:
     misses: list[str] = []
     correct = 0
     for example in rows:
-        label, reasons = check(example.message)
+        label = label_of(example)
         if label == example.label:
             correct += 1
             continue
         misses.append(
             f"expected {example.label}, got {label}: {example.message.text}"
         )
-    total = len(rows)
-    return {"correct": correct, "total": total, "misses": misses}
+    return {"correct": correct, "total": len(rows), "misses": misses}
+
+
+def score(examples: list[Example] | None = None) -> dict:
+    rows = examples if examples is not None else load_examples()
+    return _tally(rows, lambda example: check(example.message)[0])
+
+
+def score_model(examples: list[Example] | None = None) -> dict:
+    rows = examples if examples is not None else load_examples()
+    model = fit(rows)
+    return _tally(rows, lambda example: predict(model, example.message))
 
 
 def main() -> None:
-    result = score()
-    print(f"{result['correct']}/{result['total']}")
-    for miss in result["misses"]:
+    rules = score()
+    learned = score_model()
+    print(f"rules {rules['correct']}/{rules['total']}")
+    print(f"model {learned['correct']}/{learned['total']}")
+    for miss in learned["misses"]:
         print(miss)
 
 
