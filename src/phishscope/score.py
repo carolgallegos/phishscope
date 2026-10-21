@@ -1,5 +1,5 @@
 from .dataset import Example, load_examples
-from .model import fit, predict
+from .model import explain, fit, predict
 from .rules import check
 
 
@@ -30,11 +30,17 @@ def score_model(examples: list[Example] | None = None) -> dict:
 
 def main() -> None:
     rules = score()
-    learned = score_model()
+    rows = load_examples()
+    learned = score_model(rows)
     print(f"rules {rules['correct']}/{rules['total']}")
     print(f"model {learned['correct']}/{learned['total']}")
     for miss in learned["misses"]:
         print(miss)
+    model = fit(rows)
+    for example in rows:
+        label, reasons = explain(model, example.message)
+        print(f"{label}: {'; '.join(reasons)}")
+        print(f"  {example.message.text}")
 
 
 if __name__ == "__main__":

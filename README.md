@@ -6,7 +6,7 @@ Security inboxes get more suspicious mail than a person can read. PhishScope is 
 
 ## Status
 
-Labeled examples live in `data/examples.csv`. `rules.check` is a first pass: urgent wording and suspicious links, with the reasons attached. `model.fit` trains a logistic regression on features from that same sheet (account wording, a bare "urgent", odd login hosts). The number it prints is how well that fit separates these rows, not mail it has never seen.
+Labeled examples live in `data/examples.csv`. `rules.check` is a first pass: urgent wording and suspicious links, with the reasons attached. `model.fit` trains a logistic regression on features from that same sheet (account wording, a bare "urgent", odd login hosts). `model.explain` lists the features that pushed each call, strongest first. The number it prints is how well that fit separates these rows, not mail it has never seen.
 
 ```bash
 set PYTHONPATH=src
