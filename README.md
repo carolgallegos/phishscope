@@ -11,11 +11,12 @@ Labeled examples live in `data/examples.csv`. `rules.check` is a first pass: urg
 ```bash
 set PYTHONPATH=src
 python -m phishscope.score
+python -m phishscope.check "The urgent care clinic on campus opens at 8."
 ```
 
 ## Layout
 
-- `src/phishscope` — message model, rule check, and the sheet classifier
+- `src/phishscope` — message model, rule check, sheet classifier, and a one-off check command
 - `data` — labeled examples
 
 ## Setup
